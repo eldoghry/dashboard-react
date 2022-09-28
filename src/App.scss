@@ -1,11 +1,54 @@
-.container {
+.App {
   display: flex;
+  // flex-wrap: wrap;
+  background-color: whitesmoke;
+}
 
-  .wrapper {
-    flex: 8;
-    padding: 1rem;
-    background-color: whitesmoke;
-    display: flex;
-    height: 200vh;
+.widgetContainer {
+  display: flex;
+  gap: 2rem;
+}
+
+.widget {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: var(--box-shadow-light);
+
+  &__title {
+    text-transform: capitalize;
+    margin-bottom: 2rem;
   }
+}
+
+.btn {
+  padding: 1rem;
+  text-transform: capitalize;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-gray);
+  font-weight: 500;
+  box-shadow: var(--box-shadow-light);
+
+  &:hover {
+    filter: brightness(0.9);
+  }
+}
+
+.btn-sm {
+  padding: 0.7rem 1rem;
+}
+
+.avatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  box-shadow: var(--box-shadow-light);
 }

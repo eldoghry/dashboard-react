@@ -1,0 +1,62 @@
+.widgetLg {
+  flex: 3;
+
+  &__table {
+    width: 100%;
+    border-collapse: separate;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  &__th {
+    text-align: left;
+    font-size: 1.6rem;
+    text-transform: capitalize;
+    padding-bottom: 1rem;
+  }
+
+  &__tr {
+    &:nth-child(odd) {
+      background-color: var(--color-gray-light-1);
+    }
+
+    & > td {
+      height: 5rem;
+    }
+  }
+  &__img {
+    margin-right: 2rem;
+  }
+  &__name {
+    font-weight: 600;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+  &__date,
+  &__amount {
+    font-weight: 300;
+  }
+  &__statusBtn {
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+
+    &--pending {
+      color: #2e8bc0;
+      background-color: rgba(#2e8bc0, 0.1);
+    }
+
+    &--approved {
+      color: #00c684;
+      background-color: rgba(#00c684, 0.1);
+    }
+
+    &--rejected {
+      color: #e32227;
+      background-color: rgba(#e32227, 0.1);
+    }
+  }
+}

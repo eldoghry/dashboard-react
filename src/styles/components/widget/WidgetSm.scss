@@ -1,0 +1,41 @@
+.widgetSm {
+  flex: 1;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+  &__user {
+    display: flex;
+    align-items: center;
+  }
+  &__avatar {
+    margin-right: 1rem;
+  }
+  &__userInfo {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__name {
+    font-weight: 600;
+  }
+
+  &__jobtitle {
+    font-weight: 300;
+    color: var(--color-gray-dark-3);
+  }
+
+  &__btn {
+  }
+
+  &__icon {
+    margin-right: 0.5rem;
+    font-size: 2rem !important;
+  }
+}
