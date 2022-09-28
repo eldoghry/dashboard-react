@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+
+  .wrapper {
+    flex: 8;
+    padding: 1rem;
+    background-color: whitesmoke;
+    display: flex;
+    height: 200vh;
+  }
+}
