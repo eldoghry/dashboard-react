@@ -3,7 +3,8 @@ import Chart from "../components/Chart";
 import Featured from "../components/Featured";
 import WidgetSm from "../components/widget/WidgetSm";
 import WidgetLg from "../components/widget/WidgetLg";
-const Topbar = () => {
+
+const Home = () => {
   return (
     <div className="home">
       <Featured />
@@ -16,4 +17,4 @@ const Topbar = () => {
   );
 };
 
-export default Topbar;
+export default Home;

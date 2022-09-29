@@ -3,8 +3,8 @@ import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 
 const WidgetSm = () => {
   return (
-    <div className="widget widgetSm">
-      <h2 className="widget__title">new join memebers</h2>
+    <div className="box widgetSm">
+      <h2 className="box__title">new join memebers</h2>
 
       <div className="widgetSm__item">
         <div className="widgetSm__user">

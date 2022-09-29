@@ -4,17 +4,19 @@ import Topbar from "./components/Topbar";
 import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home";
 import Layout from "./components/Layout";
+import Users from "./pages/Users";
 
 function App() {
   return (
     <div className="App">
-      <Layout>
-        <Router>
+      <Router>
+        <Layout>
           <Routes>
             <Route exact path="/" element={<Home />} />
+            <Route exact path="/users" element={<Users />} />
           </Routes>
-        </Router>
-      </Layout>
+        </Layout>
+      </Router>
     </div>
   );
 }

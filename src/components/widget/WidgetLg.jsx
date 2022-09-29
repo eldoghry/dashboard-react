@@ -2,8 +2,9 @@ import "../../styles/components/widget/WidgetLg.scss";
 
 const WidgetLg = () => {
   return (
-    <div className="widget widgetLg">
-      <h2 className="widget__title">last transactions</h2>
+    <div className="box widgetLg">
+      <h2 className="box__title">last transactions</h2>
+
       <table className="widgetLg__table">
         <thead>
           <tr>

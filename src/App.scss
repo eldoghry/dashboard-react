@@ -4,12 +4,7 @@
   background-color: whitesmoke;
 }
 
-.widgetContainer {
-  display: flex;
-  gap: 2rem;
-}
-
-.widget {
+.box {
   background-color: white;
   padding: 2rem;
   border-radius: 5px;
@@ -17,8 +12,13 @@
 
   &__title {
     text-transform: capitalize;
-    margin-bottom: 2rem;
+    // margin-bottom: 2rem;
   }
+}
+
+.widgetContainer {
+  display: flex;
+  gap: 2rem;
 }
 
 .btn {
@@ -44,6 +44,26 @@
   padding: 0.7rem 1rem;
 }
 
+.btn-primary {
+  color: #2e8bc0;
+  background-color: rgba(#2e8bc0, 0.1);
+}
+
+.btn-success {
+  color: #00c684;
+  background-color: rgba(#00c684, 0.1);
+}
+
+.btn-warning {
+  color: #ffa500;
+  background-color: rgba(#ffa500, 0.1);
+}
+
+.btn-danger {
+  color: #e32227;
+  background-color: rgba(#e32227, 0.1);
+}
+
 .avatar {
   width: 4rem;
   height: 4rem;
@@ -51,4 +71,15 @@
   object-fit: cover;
   cursor: pointer;
   box-shadow: var(--box-shadow-light);
+}
+
+.link,
+.link:visited,
+.link:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.MuiDataGrid-root {
+  font-size: 1.4rem !important;
 }
