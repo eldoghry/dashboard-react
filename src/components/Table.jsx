@@ -3,6 +3,7 @@ import { DataGrid, GridRowsProp, GridColDef } from "@mui/x-data-grid";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { tableRows } from "../dummyDate";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Table = () => {
   const [pageSize, setPageSize] = useState(5);
@@ -56,13 +57,15 @@ const Table = () => {
         // console.log(params);
         return (
           <>
-            <button
-              className="btn btn-success"
-              style={{ marginRight: "2rem" }}
-              onClick={() => {}}
-            >
-              edit
-            </button>
+            <Link to={`/user/${params.row.id}`} className="link">
+              <span
+                className="btn btn-success"
+                style={{ marginRight: "2rem" }}
+                onClick={() => {}}
+              >
+                edit
+              </span>
+            </Link>
 
             <span
               className="btn btn-danger"
