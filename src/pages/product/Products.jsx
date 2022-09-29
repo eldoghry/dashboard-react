@@ -6,11 +6,11 @@ const Products = () => {
   return (
     <div className="products">
       <div className="container box">
-        <div className="Products__titleContainer">
+        <div className="products__titleContainer">
           <h2 className="box__title">Products</h2>
 
           <div style={{ display: "flex", gap: "2rem" }}>
-            <Link to="/user/new" className="link">
+            <Link to="/product/new" className="link">
               <button className="btn btn-primary">create</button>
             </Link>
             {/* <button className="btn btn-danger">delete</button> */}

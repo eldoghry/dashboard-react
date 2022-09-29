@@ -3,142 +3,122 @@
   padding: 8rem 2rem 2rem 2rem;
   min-height: 100vh;
 
-  &__titleContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-  }
-
-  &__wrapper {
-    display: flex;
-  }
-
-  &__details {
-    margin-right: 2rem;
-  }
-
   &__top {
     display: flex;
-    align-items: center;
-    margin-bottom: 2rem;
+    gap: 2rem;
+    margin: 2rem 0;
   }
 
-  &__img {
-    margin-right: 1rem;
+  &__chart {
+    flex: 1;
+    // border: 1px solid var(--color-gray-light-2);
+    box-shadow: var(--box-shadow-light-2);
+    padding: 2rem 1rem;
+    border-radius: 3px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__chartSpan {
+    text-transform: capitalize;
+    color: var(--box-shadow-light-2);
   }
 
   &__info {
+    flex: 1;
+    font-size: 1.6rem;
+    padding: 2rem;
+
     display: flex;
     flex-direction: column;
-  }
+    justify-content: center;
 
-  &__name {
-    font-weight: 600;
-    font-size: 1.6rem;
-  }
+    box-shadow: var(--box-shadow-light-2);
 
-  &__jobtitle {
-    font-weight: 300;
-    font-size: 1.5rem;
-    color: var(--color-gray-dark-3);
-  }
-
-  &__list {
-    list-style: none;
-    &-heading {
-      color: var(--color-gray-light-2);
-      margin-bottom: 1rem;
-    }
-  }
-
-  &__item {
-    display: flex;
-    align-items: center;
-    &:not(:last-child) {
-      margin-bottom: 1rem;
-    }
-  }
-
-  &__icon {
-    font-size: 1.4em !important;
-    margin-right: 1rem;
-    color: var(--color-main);
-  }
-
-  &__formContainer {
-    flex: 1;
-  }
-
-  &__form {
-    display: flex;
-    // justify-content: space-between;
-    margin-top: 2rem;
-
-    &-left {
-      flex: 3;
-      display: flex;
-      flex-wrap: wrap;
-    }
+    border-radius: 3px;
 
     &-item {
-      min-width: 25rem;
-      max-width: 45%;
+      width: 25rem;
       display: flex;
-      flex-direction: column;
-      margin-bottom: 2rem;
-      margin-right: 2rem;
+      // justify-content: space-between;
     }
 
-    &-label {
-      font-size: 1.7rem;
-      text-transform: capitalize;
-      margin-bottom: 1rem;
-    }
-    &-input {
-      height: 3rem;
-      border: none;
-      outline: none;
-      border-bottom: 1px solid var(--color-gray-light-2);
-      padding: 1rem;
-
-      &::placeholder {
-        font-size: 1.6rem;
-        color: var(--color-gray-light-2);
-      }
-
-      &:focus {
-        background-color: var(--color-gray-light-1);
-      }
-
-      &--file {
-        display: none;
-      }
-    }
-    &-right {
+    &-key {
       flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      // align-items: center;
+      font-weight: 600;
+      margin-right: 1rem;
+      text-transform: capitalize;
     }
-    &-imgContainer {
+    &-value {
+      flex: 1;
+      font-weight: 300;
+    }
+  }
+  &__form {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__formItem {
+    display: flex;
+    flex-direction: column;
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+
+    &--file {
       display: flex;
       justify-content: center;
       align-items: center;
+      gap: 1rem;
     }
-    &-img {
-      width: 10rem;
-      height: 10rem;
-      border-radius: 10px;
-      object-fit: cover;
-      margin-right: 2rem;
-      margin-bottom: auto;
-    }
+  }
 
-    &-icon {
-      cursor: pointer;
-      font-size: 3rem !important;
+  &__label {
+    margin-bottom: 0.5rem;
+    font-size: 1.6rem;
+    text-transform: capitalize;
+  }
+  &__select {
+    padding: 1rem;
+  }
+  &__formRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__formLeft {
+    display: flex;
+    flex-direction: column;
+    width: 25rem;
+  }
+  &__input {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--color-gray-light-3);
+    padding: 1rem;
+
+    color: var(--color-gray-dark-1);
+    font-size: 1.5rem;
+    font-weight: 300;
+
+    &--file {
+      display: none;
     }
+  }
+  &__formImg {
+    width: 15rem;
+    height: 15rem;
+    object-fit: contain;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+  }
+  &__icon {
+    font-size: 3.5rem !important;
+    cursor: pointer !important;
   }
 }

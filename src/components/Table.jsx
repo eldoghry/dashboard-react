@@ -1,5 +1,5 @@
 import "../styles/components/table.scss";
-import { DataGrid, GridRowsProp, GridColDef } from "@mui/x-data-grid";
+import { DataGrid } from "@mui/x-data-grid";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { tableRows } from "../dummyDate";
 import { useState } from "react";
