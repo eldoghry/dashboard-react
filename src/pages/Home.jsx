@@ -1,4 +1,4 @@
-import "../styles/page/Home.scss";
+import "../styles/page/home.scss";
 import Chart from "../components/Chart";
 import Featured from "../components/Featured";
 import WidgetSm from "../components/widget/WidgetSm";

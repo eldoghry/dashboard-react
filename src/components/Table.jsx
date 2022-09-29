@@ -1,4 +1,4 @@
-import "../styles/components/Table.scss";
+import "../styles/components/table.scss";
 import { DataGrid, GridRowsProp, GridColDef } from "@mui/x-data-grid";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { tableRows } from "../dummyDate";

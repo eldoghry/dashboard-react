@@ -1,4 +1,4 @@
-import "../styles/components/Featured.scss";
+import "../styles/components/featured.scss";
 import FeaturedItem from "./FeaturedItem";
 
 const Featured = () => {

@@ -1,4 +1,4 @@
-import "./../styles/components/Topbar.scss";
+import "./../styles/components/topbar.scss";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";

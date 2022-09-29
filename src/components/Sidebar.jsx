@@ -1,4 +1,4 @@
-import "../styles/components/Sidebar.scss";
+import "../styles/components/sidebar.scss";
 
 import PollOutlinedIcon from "@mui/icons-material/PollOutlined";
 import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";

@@ -1,4 +1,4 @@
-import "../../styles/page/user/user.scss";
+import "../../styles/page/product/product.scss";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import DateRangeOutlinedIcon from "@mui/icons-material/DateRangeOutlined";
 import PhoneAndroidOutlinedIcon from "@mui/icons-material/PhoneAndroidOutlined";

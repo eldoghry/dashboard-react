@@ -1,4 +1,4 @@
-import "../styles/components/FeaturedItem.scss";
+import "../styles/components/featuredItem.scss";
 import ArrowDownwardOutlinedIcon from "@mui/icons-material/ArrowDownwardOutlined";
 import ArrowUpwardOutlinedIcon from "@mui/icons-material/ArrowUpwardOutlined";
 

@@ -1,4 +1,4 @@
-import "../../styles/components/widget/WidgetSm.scss";
+import "../../styles/components/widget/widgetSm.scss";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 
 const WidgetSm = () => {

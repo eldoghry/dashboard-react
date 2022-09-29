@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import Table from "../../components/Table";
-import "../../styles/page/user/users.scss";
+import "../../styles/page/product/products.scss";
 
-const Users = () => {
+const Products = () => {
   return (
-    <div className="users">
+    <div className="products">
       <div className="container box">
-        <div className="users__titleContainer">
-          <h2 className="box__title">users</h2>
+        <div className="Products__titleContainer">
+          <h2 className="box__title">Products</h2>
 
           <div style={{ display: "flex", gap: "2rem" }}>
             <Link to="/user/new" className="link">
@@ -23,4 +23,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default Products;

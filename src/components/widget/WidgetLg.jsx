@@ -1,4 +1,4 @@
-import "../../styles/components/widget/WidgetLg.scss";
+import "../../styles/components/widget/widgetLg.scss";
 
 const WidgetLg = () => {
   return (

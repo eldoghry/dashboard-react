@@ -1,0 +1,12 @@
+.products {
+  flex: 8;
+  padding: 8rem 2rem 2rem 2rem;
+  min-height: 100vh;
+
+  &__titleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+}
