@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Table from "../../components/Table";
 import "../../styles/page/user/users.scss";
+import { tableRows } from "../../dummyDate";
 
 const Users = () => {
   return (
@@ -17,7 +18,7 @@ const Users = () => {
           </div>
         </div>
 
-        <Table />
+        <Table type="users" rows={tableRows} />
       </div>
     </div>
   );

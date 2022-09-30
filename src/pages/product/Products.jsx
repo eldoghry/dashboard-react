@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Table from "../../components/Table";
 import "../../styles/page/product/products.scss";
+import { productRows } from "../../dummyDate";
 
 const Products = () => {
   return (
@@ -17,7 +18,7 @@ const Products = () => {
           </div>
         </div>
 
-        <Table />
+        <Table type="products" rows={productRows} />
       </div>
     </div>
   );
