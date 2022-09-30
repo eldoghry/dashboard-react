@@ -4,33 +4,36 @@ const userSlice = createSlice({
   name: "user",
   initialState: {
     currentUser: {},
-    loading: false,
+    fetching: false,
     success: false,
-    error: null,
+    error: false,
   },
 
   reducers: {
-    setLoginLoading(state) {
-      state.loading = true;
+    loginFetching(state) {
+      state.fetching = true;
       state.success = false;
-      state.error = null;
+      state.error = false;
     },
 
-    setLoginFail(state) {
+    loginFailure(state) {
       state.success = false;
-      state.loading = false;
+      state.fetching = false;
+      state.error = true;
       state.user = {};
     },
 
-    setCurrentUser(state, action) {
-      state.loading = false;
-      state.error = null;
+    loginSuccessful(state, action) {
+      state.fetching = false;
+      state.error = false;
       state.success = true;
       state.currentUser = action.payload.user;
+      console.log(action.payload);
     },
   },
 });
 
-export const { setLoginLoading, setLoginFail, setCurrentUser } =
+export const { loginFetching, loginFailure, loginSuccessful } =
   userSlice.actions;
+
 export default userSlice.reducer;

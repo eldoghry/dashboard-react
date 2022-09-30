@@ -1,5 +1,5 @@
 import "./app.scss";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Layout from "./components/Layout";
@@ -29,7 +29,6 @@ function App() {
           <Route path="/product/:id" element={<Product />} />
         </Route>
       </Routes>
-      {/* </Router> */}
     </div>
   );
 }

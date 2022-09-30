@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-import cartReducer from "./cartSlice";
 import userReducer from "./userSlice";
 import storage from "redux-persist/lib/storage";
 import { combineReducers } from "redux";
@@ -14,7 +13,7 @@ import {
 } from "redux-persist";
 
 const persistConfig = {
-  key: "root",
+  key: "dashboard",
   storage,
 };
 
