@@ -1,7 +1,9 @@
 .widgetLg {
   flex: 3;
+  position: relative;
 
   &__table {
+    margin-top: 2rem;
     width: 100%;
     border-collapse: separate;
     text-align: center;
@@ -9,19 +11,25 @@
   }
 
   &__th {
-    text-align: left;
+    // text-align: left;
     font-size: 1.6rem;
     text-transform: capitalize;
     padding-bottom: 1rem;
+    background-color: lightgray;
+    padding: 0.5rem;
   }
 
   &__tr {
-    &:nth-child(odd) {
-      background-color: var(--color-gray-light-1);
-    }
+    // &:nth-child(odd) {
+    //   background-color: var(--color-gray-light-1);
+    // }
 
     & > td {
       height: 5rem;
+
+      &:first-child {
+        text-align: left;
+      }
     }
   }
   &__img {
@@ -30,8 +38,9 @@
   &__name {
     font-weight: 600;
     font-size: 1.5rem;
-    display: flex;
-    align-items: center;
+    // display: flex;
+    // align-items: center;
+    text-overflow: ellipsis;
   }
   &__date,
   &__amount {
@@ -52,6 +61,11 @@
     &--approved {
       color: #00c684;
       background-color: rgba(#00c684, 0.1);
+    }
+
+    &--processing {
+      color: #ffa500;
+      background-color: rgba(#ffa500, 0.1);
     }
 
     &--rejected {
