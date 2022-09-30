@@ -1,12 +1,13 @@
 import Topbar from "./Topbar";
 import Sidebar from "./Sidebar";
+import { Outlet } from "react-router-dom";
 
-function Layout({ children }) {
+function Layout() {
   return (
     <>
       <Topbar />
       <Sidebar />
-      {children}
+      <Outlet /> {/* instead of props.children, router dom v6  */}
     </>
   );
 }

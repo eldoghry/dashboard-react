@@ -2,12 +2,17 @@ import "./../styles/components/topbar.scss";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
+import { Link } from "react-router-dom";
 
 const Topbar = () => {
   return (
     <div className="topbar">
       <div className="topbar__leftContainer">
-        <h2 className="topbar__logo">Dashboard</h2>
+        <h2 className="topbar__logo">
+          <Link to="/" className="link">
+            Dashboard
+          </Link>
+        </h2>
       </div>
       <div className="topbar__rightContainer">
         <div className="topbar__item">
