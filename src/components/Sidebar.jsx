@@ -10,7 +10,7 @@ import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   return (
@@ -18,85 +18,85 @@ const Sidebar = () => {
       <div className="sidebar__menu">
         <h3 className="sidebar__title">dashboard</h3>
         <ul className="sidebar__list">
-          <Link to="/" className="link">
-            <li className="sidebar__listItem active">
+          <li>
+            <NavLink to="/" className="link sidebar__listItem" end>
               <PollOutlinedIcon className="sidebar__icon" />
               home
-            </li>
-          </Link>
+            </NavLink>
+          </li>
 
-          <Link to="/analytics" className="link">
-            <li className="sidebar__listItem">
+          <li>
+            <NavLink to="/analytics" className="link sidebar__listItem">
               <InsightsOutlinedIcon className="sidebar__icon" />
               analytics
-            </li>
-          </Link>
+            </NavLink>
+          </li>
 
-          <Link to="/sales" className="link">
-            <li className="sidebar__listItem">
+          <li>
+            <NavLink to="/sales" className="link sidebar__listItem">
               <TrendingUpOutlinedIcon className="sidebar__icon" />
               sales
-            </li>
-          </Link>
+            </NavLink>
+          </li>
         </ul>
       </div>
 
       <div className="sidebar__menu">
         <h3 className="sidebar__title">quick menu</h3>
         <ul className="sidebar__list">
-          <Link to="/users" className="link">
-            <li className="sidebar__listItem">
+          <li>
+            <NavLink to="/users" className="link sidebar__listItem">
               <PersonOutlineOutlinedIcon className="sidebar__icon" />
               users
-            </li>
-          </Link>
+            </NavLink>
+          </li>
 
-          <Link to="/products" className="link">
-            <li className="sidebar__listItem">
+          <li>
+            <NavLink to="/products" className="link sidebar__listItem">
               <StorefrontOutlinedIcon className="sidebar__icon" />
               products
-            </li>
-          </Link>
+            </NavLink>
+          </li>
 
-          <Link to="/orders" className="link">
-            <li className="sidebar__listItem">
+          <li>
+            <NavLink to="/orders" className="link sidebar__listItem">
               <ShoppingCartOutlinedIcon className="sidebar__icon" />
               orders
-            </li>
-          </Link>
+            </NavLink>
+          </li>
 
-          <Link to="/transactions" className="link">
-            <li className="sidebar__listItem">
+          <li>
+            <NavLink to="/transactions" className="link sidebar__listItem">
               <AttachMoneyOutlinedIcon className="sidebar__icon" />
               transactions
-            </li>
-          </Link>
+            </NavLink>
+          </li>
 
-          <Link to="/reports" className="link">
-            <li className="sidebar__listItem">
+          <li>
+            <NavLink to="/reports" className="link sidebar__listItem">
               <BarChartOutlinedIcon className="sidebar__icon" />
               reports
-            </li>
-          </Link>
+            </NavLink>
+          </li>
         </ul>
       </div>
 
       <div className="sidebar__menu">
         <h3 className="sidebar__title">notification</h3>
         <ul className="sidebar__list">
-          <Link to="/mail" className="link">
-            <li className="sidebar__listItem">
+          <li>
+            <NavLink to="/mail" className="link sidebar__listItem">
               <EmailOutlinedIcon className="sidebar__icon" />
               mail
-            </li>
-          </Link>
+            </NavLink>
+          </li>
 
-          <Link to="/message" className="link">
-            <li className="sidebar__listItem">
+          <li>
+            <NavLink to="/message" className="link sidebar__listItem">
               <ChatBubbleOutlineOutlinedIcon className="sidebar__icon" />
               message
-            </li>
-          </Link>
+            </NavLink>
+          </li>
         </ul>
       </div>
     </div>
