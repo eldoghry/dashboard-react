@@ -1,131 +1,119 @@
-import "../../styles/page/user/new.scss";
-
+import "../../styles/page/product/new.scss";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { Link } from "react-router-dom";
 
-const newUser = () => {
+const NewProduct = () => {
   return (
-    <div className="newUser">
-      <div className="newUser__wrapper box">
-        <h2 className="box__title">Create User</h2>
+    <div className="newProduct">
+      <div className="newProduct__wrapper box">
+        <h2 className="box__title">Create Product</h2>
 
-        <form className="newUser__form">
-          <div className="newUser__form-top">
-            <div className="newUser__form-item">
-              <label htmlFor="firstname" className="newUser__form-label">
-                firstname
+        <form className="newProduct__form">
+          <div className="newProduct__form-top">
+            <div className="newProduct__form-item">
+              <label htmlFor="title" className="newProduct__form-label">
+                title
               </label>
               <input
                 type="text"
-                name="firstname"
-                placeholder="firstname"
-                className="newUser__form-input"
-                id="firstname"
+                name="title"
+                placeholder="title"
+                className="newProduct__form-input"
+                id="title"
               />
             </div>
 
-            <div className="newUser__form-item">
-              <label htmlFor="lastname" className="newUser__form-label">
-                lastname
+            <div className="newProduct__form-item">
+              <label htmlFor="username" className="newProduct__form-label">
+                price
               </label>
               <input
+                type="number"
+                name="price"
+                min={0}
+                placeholder="price"
+                className="newProduct__form-input"
+                id="price"
+              />
+            </div>
+
+            <div className="newProduct__form-item--textarea">
+              <label htmlFor="lastname" className="newProduct__form-label">
+                desc
+              </label>
+              <textarea
                 type="text"
-                name="lastname"
-                placeholder="lastname"
-                className="newUser__form-input"
-                id="lastname"
+                name="desc"
+                placeholder="desc"
+                className="newProduct__form-input--textarea"
+                id="desc"
               />
             </div>
 
-            <div className="newUser__form-item">
-              <label htmlFor="username" className="newUser__form-label">
-                username
+            <div className="newProduct__form-item">
+              <label htmlFor="password" className="newProduct__form-label">
+                Category
               </label>
-              <input
-                type="text"
-                name="username"
-                placeholder="username"
-                className="newUser__form-input"
-                id="username"
-              />
-            </div>
-
-            <div className="newUser__form-item">
-              <label htmlFor="email" className="newUser__form-label">
-                email
-              </label>
-              <input
-                type="text"
-                name="email"
-                placeholder="email"
-                className="newUser__form-input"
-                id="email"
-              />
-            </div>
-
-            <div className="newUser__form-item">
-              <label htmlFor="password" className="newUser__form-label">
-                password
-              </label>
-              <input
-                type="password"
-                name="password"
-                placeholder="password"
-                className="newUser__form-input"
-                id="password"
-              />
+              <select className="newProduct__form-input--select">
+                <option value="cat 1">cat 1</option>
+                <option value="cat 2">cat 2</option>
+                <option value="cat 3">cat 3</option>
+              </select>
             </div>
           </div>
 
-          <div className="newUser__form-imgContainer">
+          <div className="newProduct__form-imgContainer">
             <img
               src="https://via.placeholder.com/100"
               alt="image"
-              className="newUser__form-img"
+              className="newProduct__form-img"
             />
 
-            <label htmlFor="newUserImg" className="newUser__form-label--img">
-              <DriveFolderUploadOutlinedIcon className="newUser__form-icon" />
+            <label
+              htmlFor="newProductImg"
+              className="newProduct__form-label--img"
+            >
+              <DriveFolderUploadOutlinedIcon className="newProduct__form-icon" />
             </label>
 
             <input
               type="file"
-              name="newUserImg"
-              id="newUserImg"
-              className="newUser__form-input--file"
+              name="newProductImg"
+              id="newProductImg"
+              className="newProduct__form-input--file"
             />
           </div>
 
-          <div className="newUser__radio">
-            <span className="newUser__radioHeading">Gender:</span>
+          <div className="newProduct__radio">
+            <span className="newProduct__radioHeading">inStock:</span>
 
             <input
               type="radio"
               name="gender"
-              value="male"
-              className="newUser__radioInput"
+              value="yes"
+              className="newProduct__radioInput"
               id="password"
             />
-            <label htmlFor="male" className="newUser__radioLabel">
-              male
+            <label htmlFor="yes" className="newProduct__radioLabel">
+              yes
             </label>
 
             <input
               type="radio"
               name="gender"
-              value="female"
-              className="newUser__radioInput"
+              value="no"
+              className="newProduct__radioInput"
               id="password"
             />
-            <label htmlFor="female" className="newUser__radioLabel">
-              female
+            <label htmlFor="no" className="newProduct__radioLabel">
+              no
             </label>
           </div>
 
-          <div className="newUser__selectContainer">
-            <span className="newUser__select-heading">Status:</span>
+          <div className="newProduct__selectContainer">
+            <span className="newProduct__select-heading">Status:</span>
 
-            <select className="newUser__select">
+            <select className="newProduct__select" name="status">
               <option value="active">active</option>
               <option value="disabled">disabled</option>
             </select>
@@ -143,4 +131,4 @@ const newUser = () => {
   );
 };
 
-export default newUser;
+export default NewProduct;
