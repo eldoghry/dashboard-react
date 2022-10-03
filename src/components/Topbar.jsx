@@ -29,7 +29,7 @@ const Topbar = () => {
 
         <div className="topbar__item">
           <img
-            alt="profile image"
+            alt="profile"
             src="https://images.pexels.com/photos/3748221/pexels-photo-3748221.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             className="topbar__img avatar"
           />

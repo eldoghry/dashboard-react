@@ -12,7 +12,8 @@ const Table = ({ type, rows }) => {
   const [filteredData, setFilteredData] = useState(rows);
 
   const handleDelete = (e, id) => {
-    setFilteredData(filteredData.filter((row) => row.id !== id));
+    //TODO: handle delete user api
+    setFilteredData(filteredData.filter((row) => row._id !== id));
   };
 
   let columns;
@@ -42,6 +43,7 @@ const Table = ({ type, rows }) => {
         disableSelectionOnClick
         rowsPerPageOptions={[5, 10, 20]}
         pagination
+        getRowId={(row) => row._id}
       />
     </div>
   );

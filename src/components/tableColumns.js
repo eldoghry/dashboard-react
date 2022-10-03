@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import DeleteIcon from "@mui/icons-material/Delete";
-
+import { format } from "timeago.js";
 //SETUP DATAGRID TABLE COLUMNS SHAPE
 
 export const createUserTableColumns = (handleDelete) => [
-  { field: "id", headerName: "ID", width: 70 },
+  { field: "_id", headerName: "ID", width: 200 },
   {
-    field: "name",
+    field: "username",
     headerName: "User",
     width: 200,
 
@@ -20,24 +20,32 @@ export const createUserTableColumns = (handleDelete) => [
               params.row.img ||
               "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
             }
-            alt={params.row.name}
+            alt={params.row.username}
           />
-          <span>{params.row.name}</span>
+          <span>{params.row.username}</span>
         </>
       );
     },
   },
   { field: "email", headerName: "Email", width: 200 },
   {
+    field: "createdAt",
+    headerName: "Join Date",
+    width: 200,
+    renderCell: (params) => {
+      return <span>{format(params.row.createdAt)}</span>;
+    },
+  },
+  {
     field: "status",
     headerName: "Status",
-    // type: "boolean",
+    type: "boolean",
     // editable: true,
     width: 90,
   },
   {
     field: "transaction",
-    headerName: "transaction",
+    headerName: "Transaction",
     width: 160,
   },
 
@@ -50,7 +58,7 @@ export const createUserTableColumns = (handleDelete) => [
       // console.log(params);
       return (
         <>
-          <Link to={`/user/${params.row.id}`} className="link">
+          <Link to={`/user/${params.row._id}`} className="link">
             <span
               className="btn btn-success"
               style={{ marginRight: "2rem" }}
@@ -62,7 +70,7 @@ export const createUserTableColumns = (handleDelete) => [
 
           <span
             className="btn btn-danger"
-            onClick={(e) => handleDelete(e, params.row.id)}
+            onClick={(e) => handleDelete(e, params.row._id)}
           >
             <DeleteIcon />
           </span>
@@ -73,7 +81,7 @@ export const createUserTableColumns = (handleDelete) => [
 ];
 
 export const createProductTableColumns = (handleDelete) => [
-  { field: "id", headerName: "ID", width: 70 },
+  { field: "_id", headerName: "ID", width: 200 },
   {
     field: "title",
     headerName: "Product",
@@ -126,7 +134,7 @@ export const createProductTableColumns = (handleDelete) => [
       // console.log(params);
       return (
         <>
-          <Link to={`/product/${params.row.id}`} className="link">
+          <Link to={`/product/${params.row._id}`} className="link">
             <span
               className="btn btn-success"
               style={{ marginRight: "2rem" }}

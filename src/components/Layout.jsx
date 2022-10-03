@@ -13,7 +13,7 @@ function Layout() {
     if (!user.isAdmin) {
       navigate("/login");
     }
-  }, [user]);
+  }, [user, navigate]);
 
   return (
     <>

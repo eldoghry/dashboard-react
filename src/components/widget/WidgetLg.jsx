@@ -25,9 +25,12 @@ const WidgetLg = () => {
 
   return (
     <div className="box widgetLg">
+      <h2 className="box__title">last transactions</h2>
+
+      {loading && <Loader />}
+
       {orders.length > 0 && (
         <>
-          <h2 className="box__title">last transactions</h2>
           <table className="widgetLg__table">
             <thead>
               <tr>
@@ -62,8 +65,6 @@ const WidgetLg = () => {
           </table>
         </>
       )}
-
-      {loading && <Loader />}
     </div>
   );
 };
