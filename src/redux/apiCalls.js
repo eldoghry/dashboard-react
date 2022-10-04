@@ -6,6 +6,8 @@ import {
   requestStart,
   getProductsSuccess,
   deleteProductsSuccess,
+  addProductSuccess,
+  updateProductSuccess,
 } from "./productSlice";
 
 // TODO: add used api calles here to dispatched with redux
@@ -57,8 +59,30 @@ export const deleteProduct = async (dispatch, id) => {
   try {
     console.log("deleting");
     dispatch(requestStart());
-    // await userRequester.delete(`product${id}`);
+    await userRequester.delete(`product/${id}`);
     dispatch(deleteProductsSuccess(id));
+  } catch (error) {
+    dispatch(requestFailure());
+  }
+};
+
+//add Product
+export const addProduct = async (dispatch, product) => {
+  try {
+    dispatch(requestStart());
+    const res = await userRequester.post(`product/`, product);
+    dispatch(addProductSuccess({ product: res.data }));
+  } catch (error) {
+    dispatch(requestFailure());
+  }
+};
+
+//update Product
+export const updateProduct = async (dispatch, id, update) => {
+  try {
+    dispatch(requestStart());
+    const res = await userRequester.put(`product/${id}`, update);
+    dispatch(updateProductSuccess({ product: res.data }));
   } catch (error) {
     dispatch(requestFailure());
   }

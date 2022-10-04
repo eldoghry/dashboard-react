@@ -39,6 +39,18 @@
       font-size: 1.7rem;
       text-transform: capitalize;
       margin-bottom: 1rem;
+
+      &--img {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        span {
+          font-size: 1.5rem;
+          font-style: italic;
+          color: var(--color-gray-light-4);
+        }
+      }
     }
 
     &-input {

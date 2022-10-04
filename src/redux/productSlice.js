@@ -35,9 +35,28 @@ const productsSlice = createSlice({
       state.error = false;
       state.success = true;
       state.products.splice(
-        state.products.findIndex((item) => item._id === action.payload.id),
+        state.products.findIndex((item) => item._id === action.payload),
         1
       );
+    },
+
+    addProductSuccess(state, action) {
+      state.fetching = false;
+      state.error = false;
+      state.success = true;
+      state.products.push(action.payload.product);
+    },
+
+    updateProductSuccess(state, action) {
+      state.fetching = false;
+      state.error = false;
+      state.success = true;
+      const index = state.products.findIndex(
+        (item) => item._id === action.payload.id
+      );
+      state.products[index] = {
+        ...action.payload.product,
+      };
     },
   },
 });
@@ -47,6 +66,8 @@ export const {
   requestStart,
   getProductsSuccess,
   deleteProductsSuccess,
+  addProductSuccess,
+  updateProductSuccess,
 } = productsSlice.actions;
 
 export default productsSlice.reducer;

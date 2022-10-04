@@ -7,12 +7,12 @@ import { useEffect } from "react";
 import { getProducts, deleteProduct } from "../../redux/apiCalls";
 
 const Products = () => {
-  const products = useSelector((state) => state.products.products);
+  let products = useSelector((state) => state.products.products);
   const dispatch = useDispatch();
+  console.log(products);
 
   const handleDelete = (_, id) => {
-    deleteProduct(dispatch, { id });
-    console.log(products);
+    deleteProduct(dispatch, id);
   };
 
   useEffect(() => {
@@ -33,7 +33,11 @@ const Products = () => {
           </div>
         </div>
 
-        <Table type="product" rows={products} handleDelete={handleDelete} />
+        <Table
+          type="product"
+          rows={[...products].sort((a, b) => b.createdAt - a.createdAt)}
+          handleDelete={handleDelete}
+        />
       </div>
     </div>
   );

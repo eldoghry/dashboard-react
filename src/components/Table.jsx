@@ -10,7 +10,7 @@ import { userRequester } from "../apiRequester";
 import { useSelector } from "react-redux";
 
 const Table = ({ type, rows, handleDelete }) => {
-  const [pageSize, setPageSize] = useState(5);
+  const [pageSize, setPageSize] = useState(20);
   // const [filteredData, setFilteredData] = useState(rows);
   const state = useSelector((state) => state);
 

@@ -10,6 +10,10 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { updateProduct } from "../../redux/apiCalls";
 
 const Product = () => {
   const data = [
@@ -26,6 +30,41 @@ const Product = () => {
       total: 2290,
     },
   ];
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const product = useSelector((state) => state.products.products).filter(
+    (item) => item._id === id
+  )[0];
+  const [inputs, setInputs] = useState({});
+  const [file, setFile] = useState(null);
+
+  const handleChange = (e) => {
+    let obj = {};
+
+    if (["categories", "sizes", "colors"].includes(e.target.name)) {
+      obj[e.target.name] = [...e.target.value.toLowerCase().trim().split(",")];
+    } else {
+      obj[e.target.name] = e.target.value.toLowerCase().trim();
+    }
+
+    setInputs((prev) => {
+      return {
+        ...prev,
+        ...obj,
+      };
+    });
+  };
+
+  const handleUpdate = (e) => {
+    e.preventDefault();
+
+    if (file) {
+    } else {
+      console.log(inputs);
+      updateProduct(dispatch, id, inputs);
+    }
+  };
+
   return (
     <div className="product">
       <div className="box">
@@ -52,19 +91,21 @@ const Product = () => {
           <div className="product__info">
             <div className="product__info-item">
               <span className="product__info-key">id:</span>
-              <span className="product__info-value">35467186743694989</span>
+              <span className="product__info-value">{product._id}</span>
             </div>
             <div className="product__info-item">
-              <span className="product__info-key">sales:</span>
-              <span className="product__info-value">512</span>
+              <span className="product__info-key">price:</span>
+              <span className="product__info-value">{product.price}</span>
             </div>
             <div className="product__info-item">
-              <span className="product__info-key">active:</span>
-              <span className="product__info-value">yes</span>
+              <span className="product__info-key">Status:</span>
+              <span className="product__info-value">{product.status}</span>
             </div>
             <div className="product__info-item">
               <span className="product__info-key">in stock:</span>
-              <span className="product__info-value">no</span>
+              <span className="product__info-value">
+                {product.inStock ? "Yes" : "No"}
+              </span>
             </div>
           </div>
         </div>
@@ -72,31 +113,34 @@ const Product = () => {
         <form className="product__form">
           <div className="product__formLeft">
             <div className="product__formItem">
-              <label htmlFor="name" className="product__label">
-                Product name
+              <label htmlFor="title" className="product__label">
+                Product title
               </label>
 
               <input
                 type="text"
                 className="product__input"
-                id="name"
-                value="Nike Shoes"
+                id="title"
+                name="title"
+                placeholder={product.title}
+                onChange={handleChange}
               />
             </div>
 
             <div className="product__formItem">
-              <label htmlFor="stock" className="product__label">
-                in stock
+              <label htmlFor="inStock" className="product__label">
+                inStock
               </label>
 
               <select
-                name="stock"
-                id="stock"
+                name="inStock"
+                id="inStock"
                 className="product__select"
-                defaultValue="yes"
+                defaultValue={product.inStock}
+                onChange={handleChange}
               >
-                <option value="yes">yes</option>
-                <option value="no">no</option>
+                <option value={true}>yes</option>
+                <option value={false}>no</option>
               </select>
             </div>
 
@@ -106,10 +150,11 @@ const Product = () => {
               </label>
 
               <select
-                name="active"
-                id="active"
+                name="status"
+                id="status"
                 className="product__select"
-                defaultValue="active"
+                defaultValue={product.status}
+                onChange={handleChange}
               >
                 <option value="active">active</option>
                 <option value="inactive">inactive</option>
@@ -119,11 +164,7 @@ const Product = () => {
 
           <div className="product__formRight">
             <div className="product__formItem--file">
-              <img
-                src="https://sneakerbardetroit.com/wp-content/uploads/2019/02/Nike-Adapt-BB-2.png"
-                alt=""
-                className="product__formImg"
-              />
+              <img src={product.img} alt="" className="product__formImg" />
 
               <label htmlFor="img" className="product__label--file">
                 <DriveFolderUploadOutlinedIcon className="product__icon" />
@@ -132,7 +173,9 @@ const Product = () => {
               <input type="file" className="product__input--file" id="img" />
             </div>
 
-            <button className="btn btn-warning">update</button>
+            <button className="btn btn-warning" onClick={handleUpdate}>
+              update
+            </button>
           </div>
         </form>
       </div>

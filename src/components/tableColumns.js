@@ -104,6 +104,14 @@ export const createProductTableColumns = (handleDelete) => [
       );
     },
   },
+  {
+    field: "createdAt",
+    headerName: "Join Date",
+    // width: 200,
+    renderCell: (params) => {
+      return <span>{format(params.row.createdAt)}</span>;
+    },
+  },
 
   {
     field: "instock",
@@ -115,7 +123,6 @@ export const createProductTableColumns = (handleDelete) => [
   {
     field: "status",
     headerName: "status",
-    type: "boolean",
     width: 90,
   },
 
