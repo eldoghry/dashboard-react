@@ -2,8 +2,34 @@ import "../../styles/page/user/new.scss";
 
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { userRequester } from "../../apiRequester";
 
-const newUser = () => {
+const NewUser = () => {
+  const [user, setUser] = useState({});
+  const [file, setFile] = useState(null);
+  const [status, setStatus] = useState("active");
+
+  const handleClick = (e) => {
+    e.preventDefault();
+
+    console.log(user);
+    console.log(file);
+
+    //TODO: validate inputs
+
+    const createUser = async () => {
+      try {
+        const res = await userRequester.post("user", user);
+        console.log(res);
+      } catch (error) {
+        console.log();
+      }
+    };
+
+    createUser();
+  };
+
   return (
     <div className="newUser">
       <div className="newUser__wrapper box">
@@ -21,6 +47,9 @@ const newUser = () => {
                 placeholder="firstname"
                 className="newUser__form-input"
                 id="firstname"
+                onChange={(e) => {
+                  setUser({ ...user, [e.target.name]: e.target.value });
+                }}
               />
             </div>
 
@@ -34,6 +63,9 @@ const newUser = () => {
                 placeholder="lastname"
                 className="newUser__form-input"
                 id="lastname"
+                onChange={(e) => {
+                  setUser({ ...user, [e.target.name]: e.target.value });
+                }}
               />
             </div>
 
@@ -47,6 +79,9 @@ const newUser = () => {
                 placeholder="username"
                 className="newUser__form-input"
                 id="username"
+                onChange={(e) => {
+                  setUser({ ...user, [e.target.name]: e.target.value });
+                }}
               />
             </div>
 
@@ -60,6 +95,9 @@ const newUser = () => {
                 placeholder="email"
                 className="newUser__form-input"
                 id="email"
+                onChange={(e) => {
+                  setUser({ ...user, [e.target.name]: e.target.value });
+                }}
               />
             </div>
 
@@ -73,6 +111,9 @@ const newUser = () => {
                 placeholder="password"
                 className="newUser__form-input"
                 id="password"
+                onChange={(e) => {
+                  setUser({ ...user, [e.target.name]: e.target.value });
+                }}
               />
             </div>
           </div>
@@ -93,6 +134,7 @@ const newUser = () => {
               name="newUserImg"
               id="newUserImg"
               className="newUser__form-input--file"
+              onChange={(e) => setFile(e.target.value)}
             />
           </div>
 
@@ -104,7 +146,10 @@ const newUser = () => {
               name="gender"
               value="male"
               className="newUser__radioInput"
-              id="password"
+              id="male"
+              onChange={(e) => {
+                setUser({ ...user, [e.target.name]: e.target.value });
+              }}
             />
             <label htmlFor="male" className="newUser__radioLabel">
               male
@@ -115,7 +160,10 @@ const newUser = () => {
               name="gender"
               value="female"
               className="newUser__radioInput"
-              id="password"
+              id="female"
+              onChange={(e) => {
+                setUser({ ...user, [e.target.name]: e.target.value });
+              }}
             />
             <label htmlFor="female" className="newUser__radioLabel">
               female
@@ -125,7 +173,14 @@ const newUser = () => {
           <div className="newUser__selectContainer">
             <span className="newUser__select-heading">Status:</span>
 
-            <select className="newUser__select">
+            <select
+              name="status"
+              className="newUser__select"
+              onChange={(e) => {
+                setStatus(e.target.value);
+              }}
+              defaultValue={status}
+            >
               <option value="active">active</option>
               <option value="disabled">disabled</option>
             </select>
@@ -134,6 +189,7 @@ const newUser = () => {
           <button
             className="btn btn-warning"
             style={{ alignSelf: "flex-end", width: "15rem" }}
+            onClick={handleClick}
           >
             update
           </button>
@@ -143,4 +199,4 @@ const newUser = () => {
   );
 };
 
-export default newUser;
+export default NewUser;

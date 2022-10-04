@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./userSlice";
+import productsReducer from "./productSlice";
 import storage from "redux-persist/lib/storage";
 import { combineReducers } from "redux";
 import {
@@ -11,6 +12,7 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+import usersSlice from "./usersSlice";
 
 const persistConfig = {
   key: "dashboard",
@@ -18,7 +20,11 @@ const persistConfig = {
 };
 
 // add your other reducer here
-const reducers = combineReducers({ user: userReducer });
+const reducers = combineReducers({
+  user: userReducer,
+  users: usersSlice,
+  products: productsReducer,
+});
 const persistedReducer = persistReducer(persistConfig, reducers);
 
 const store = configureStore({

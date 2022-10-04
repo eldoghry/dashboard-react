@@ -6,24 +6,31 @@ import {
   createUserTableColumns,
   createProductTableColumns,
 } from "./tableColumns";
+import { userRequester } from "../apiRequester";
+import { useSelector } from "react-redux";
 
-const Table = ({ type, rows }) => {
+const Table = ({ type, rows, handleDelete }) => {
   const [pageSize, setPageSize] = useState(5);
-  const [filteredData, setFilteredData] = useState(rows);
+  // const [filteredData, setFilteredData] = useState(rows);
+  const state = useSelector((state) => state);
 
-  const handleDelete = (e, id) => {
-    //TODO: handle delete user api
-    setFilteredData(filteredData.filter((row) => row._id !== id));
-  };
+  // const handleDelete = async (_, id) => {
+  //   try {
+  //     await userRequester.delete(`/${type}/${id}`);
+  //     setFilteredData(filteredData.filter((row) => row._id !== id));
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   let columns;
 
   switch (type) {
-    case "users":
+    case "user":
       columns = createUserTableColumns(handleDelete);
       break;
 
-    case "products":
+    case "product":
       columns = createProductTableColumns(handleDelete);
       break;
 
@@ -34,7 +41,7 @@ const Table = ({ type, rows }) => {
   return (
     <div className="Table">
       <DataGrid
-        rows={filteredData}
+        rows={rows}
         columns={columns}
         pageSize={pageSize}
         onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}

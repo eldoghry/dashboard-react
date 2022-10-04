@@ -146,7 +146,7 @@ export const createProductTableColumns = (handleDelete) => [
 
           <span
             className="btn btn-danger"
-            onClick={(e) => handleDelete(e, params.row.id)}
+            onClick={(e) => handleDelete(e, params.row._id)}
           >
             <DeleteIcon />
           </span>

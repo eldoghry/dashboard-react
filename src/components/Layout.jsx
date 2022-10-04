@@ -9,6 +9,7 @@ function Layout() {
   const user = useSelector((state) => state.user.currentUser);
   const navigate = useNavigate();
 
+  // TODO: validate expired token
   useEffect(() => {
     if (!user.isAdmin) {
       navigate("/login");

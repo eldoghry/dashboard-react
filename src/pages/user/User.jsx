@@ -6,9 +6,31 @@ import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import FingerprintOutlinedIcon from "@mui/icons-material/FingerprintOutlined";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Loader from "../../components/Loader";
+import { userRequester } from "../../apiRequester";
 
 const User = () => {
+  const { id } = useParams();
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const getuser = async () => {
+      try {
+        setLoading(true);
+        const res = await userRequester.get(`user/${id}`);
+        setLoading(false);
+        setUser(res.data);
+        console.log(user);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getuser();
+  }, [id]);
+
   return (
     <div className="user">
       <div className="">
@@ -19,6 +41,8 @@ const User = () => {
           </Link>
         </div>
 
+        {loading && <Loader />}
+
         <div className="user__wrapper">
           <div className="user__details box">
             <div className="user__top">
@@ -28,7 +52,7 @@ const User = () => {
                 alt="img"
               />
               <div className="user__info">
-                <span className="user__name">Mohamed Magdy</span>
+                <span className="user__name">{user.username}</span>
                 <span className="user__jobtitle">Web developer</span>
               </div>
             </div>
@@ -37,12 +61,12 @@ const User = () => {
               <h3 className="user__list-heading">Account Details</h3>
               <li className="user__item">
                 <FingerprintOutlinedIcon className="user__icon" />
-                8879456878676478
+                {user._id}
               </li>
 
               <li className="user__item">
                 <PersonOutlinedIcon className="user__icon" />
-                mma90
+                {user.username}
               </li>
               <li className="user__item">
                 <DateRangeOutlinedIcon className="user__icon" />
@@ -51,11 +75,11 @@ const User = () => {
               <h3 className="user__list-heading">Contact Details</h3>
               <li className="user__item">
                 <PhoneAndroidOutlinedIcon className="user__icon" />
-                +2 011 4349 7899
+                {user.tel || "+2 01143497899"}
               </li>
               <li className="user__item">
                 <EmailOutlinedIcon className="user__icon" />
-                moh.mag.ali@gmail.com
+                {user.email}
               </li>
               <li className="user__item">
                 <LocationOnOutlinedIcon className="user__icon" />

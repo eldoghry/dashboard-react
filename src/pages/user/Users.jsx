@@ -4,25 +4,20 @@ import "../../styles/page/user/users.scss";
 import { userRequester } from "../../apiRequester";
 import Loader from "../../components/Loader";
 import { useEffect, useState } from "react";
+import { getUsers } from "../../redux/apiCalls";
+import { useDispatch, useSelector } from "react-redux";
 
 const Users = () => {
-  const [users, setUsers] = useState([]);
+  const users = useSelector((state) => state.users.users);
+  console.log(users);
   const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const getusers = async () => {
-      try {
-        setLoading(true);
-        const res = await userRequester.get("/user");
-        setLoading(false);
-        setUsers(res.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getusers();
-  }, []);
-
+    setLoading(true);
+    getUsers(dispatch);
+    setLoading(false);
+  }, [dispatch]);
 
   return (
     <div className="users">
@@ -40,7 +35,7 @@ const Users = () => {
 
         {loading && <Loader />}
 
-        {users.length > 0 && <Table type="users" rows={users} />}
+        {users.length > 0 && <Table type="user" rows={users} />}
       </div>
     </div>
   );
